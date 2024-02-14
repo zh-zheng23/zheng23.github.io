@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>11111</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <h1>AJAX</h1>
+        <p id="p01">原文本</p>
+        <button id="button01" onclick="quote()">改变</button>
+    </body>
+    <script>
+        function quote(){
+            const xhttp=new XMLHttpRequest();
+            xhttp.onload=function(){
+                document.getElementById("p01").innerHTML=this.responseText;
+            } 
+            xhttp.open("GET","https://github.com/zh-zheng23/zheng23.github.io/edit/dev/testData.txt")
+            xhttp.send();
+        }
 
+    </script>
+</html>
