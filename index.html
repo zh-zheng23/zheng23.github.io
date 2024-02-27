@@ -1,23 +1,78 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>11111</title>
-        <meta charset="utf-8"/>
-    </head>
-    <body>
-        <h1>AJAX</h1>
-        <p id="p01">原文本</p>
-        <button id="button01" onclick="quote()">改变</button>
-    </body>
-    <script>
-        function quote(){
-            const xhttp=new XMLHttpRequest();
-            xhttp.onload=function(){
-                document.getElementById("p01").innerHTML=this.responseText;
-            } 
-            xhttp.open("GET","testData.txt")
-            xhttp.send();
-        }
-
-    </script>
+<html lang="ch-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="A game of beating balls with your partner"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Ball Game</title>
+  </head>
+  <body>
+    <!--游戏区-->
+    
+    <!--左-->
+    <div id="gamearea" style="width: 700px; height: 588px;top: 0; left: 0; position: absolute;float: left;background-color: lightblue;">
+    </div>
+    <!--右-->
+    <div id="gamearea" style="width: 700px; height: 588px;top: 0; left: 700px; position: absolute;background-color: lightpink;">
+    </div>
+    <!--player1-->
+    <div id="player1" style="position: absolute;"><img src="../public/player1.png" width="50px" height="50px"></img></div>
+    <!--player2-->
+    <div id="player2" style="position: absolute;"><img src="../public/player2.png" width="50px" height="50px"></img></div>
+    <!--球-->
+    <div id="ball" style="position: absolute;" ><img src="../public/logo192.png" width="50px" height="50px"></img></div>
+    <!--游戏区结束-->
+    <!--玩家信息与游戏控制区-->
+    <div id="controlarea" style="width: 1200px; height: 40%; position: absolute; bottom: 0;">
+    <!--左玩家信息-->
+    <div id="player1" style="width: 360px; height: 15%; float: left; position: relative;float: left;">
+      <p>玩家1</p>
+      <p id="player1score">score: <strong id="score1">0</strong></p>
+      <p id="player1energy">energy: <strong id="energy1">0</strong></p>
+    </div>
+    <!--游戏控制区-->
+    <div id="gamecontrol" style="width: 480px; height: 15%; float: left; position: relative;float: left;">
+      <button id="start">开始游戏</button>
+      <button id="pause">暂停游戏</button>
+      <button id="resume">继续游戏</button>
+      <button id="end">结束游戏</button>
+      <p id="timer">时间: <time id="time">0</time></p>
+    </div>
+    <!--右玩家信息-->
+    <div id="player2" style="width: 360px; height: 15%; float: right; position: relative;float: right;">
+      <p>玩家2</p>
+      <p id="player2score">score: <strong id="score2">0</strong></p>
+      <p id="player2energy">energy: <strong id="energy2">0</strong></p>
+    </div>
+    <!--玩家信息与游戏控制区结束-->
+    <!--说明区-->
+    <div id="description" style="width: 1200px; height: 25%; position: absolute; bottom: 40%;">
+      <pre style="font-size: 20px; height: 25%; width: 360px; position: relative;float: left;">   
+        左方玩家控制左侧人物:
+            移动:w:上 s:下 a:左 d:右
+            发射角度:数字键,按角度制
+            发射力度:三级,j:低,k:中,l:高
+            射击:空格键
+      </pre >
+      <pre style="font-size: 20px; height: 25%; width: 360px; position: relative;float: right;">   
+        右方玩家控制右侧人物:
+            移动:方向键控制,上下左右
+            发射角度:数字键,按角度制
+            发射力度:三级,/:低,*:中,-:高
+            射击:Del键
+      </pre>
+    </div>
+    <!--说明区结束-->
+    <!--脚本-->
+    <script src="../src/ball.js"></script>
+    <script src="../src/player.js"></script>
+    <script src="../src/game.js"></script>
+  </body>
 </html>

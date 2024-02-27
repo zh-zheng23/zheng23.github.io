@@ -1,0 +1,4 @@
+src部分用于存放js、css、等文件
+所以对于应用来说，react框架的这一部分文件架构是可以忽略的
+App.css和index.css是全局样式文件
+js文件依据功能划分，比如App.js、Home.js、About.js等
